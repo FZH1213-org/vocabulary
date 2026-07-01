@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/auth/auth",
+    "pages/index/index",
+    "pages/page2/page2"
   ],
   "window": {
     "navigationBarTitleText": "词汇复习表格",
@@ -8,6 +10,26 @@
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f3fbf2",
     "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3fa34d",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/page2/page2",
+        "text": "页面2",
+        "iconPath": "assets/icons/page2.png",
+        "selectedIconPath": "assets/icons/page2-active.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

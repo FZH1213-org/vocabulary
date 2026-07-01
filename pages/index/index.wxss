@@ -3,9 +3,9 @@
 /* 变量定义 */
 page {
   --pill: #c7e8c5;
-  --accent: #3fa34d;
+  --accent: #4ab859;
   --soft: #f3fbf2;
-  --error: #e05656;
+  --error: #018b1f;
 }
 
 /* 容器 */

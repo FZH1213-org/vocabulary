@@ -1,5 +1,6 @@
 // pages/index/index.js
 const vocabularyData = require('../../utils/vocabulary.js').vocabularyData;
+const auth = require('../../utils/auth.js');
 
 // 音频上下文
 let audioContext = null;
@@ -23,6 +24,14 @@ Page({
   },
 
   onLoad() {
+    // 检查验证状态
+    if (!auth.isVerified()) {
+      wx.redirectTo({
+        url: '/pages/auth/auth'
+      });
+      return;
+    }
+
     // 初始化数据
     this.setData({
       title: vocabularyData.title,

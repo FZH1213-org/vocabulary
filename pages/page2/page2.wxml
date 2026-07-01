@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="content-card">
+    <text class="welcome-text">欢迎使用词汇复习小程序</text>
+    <text class="hint-text">此页面功能开发中...</text>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<view class="auth-container">
+  <view class="auth-card">
+    <view class="auth-header">
+      <text class="auth-title">词汇复习小程序</text>
+      <text class="auth-subtitle">请输入邀请码以访问</text>
+    </view>
+
+    <view class="auth-form">
+      <input
+        class="auth-input {{errorMsg ? 'error' : ''}}"
+        type="text"
+        placeholder="请输入邀请码"
+        value="{{inviteCode}}"
+        bindinput="onInput"
+        confirm-type="done"
+      />
+
+      <text class="error-text" wx:if="{{errorMsg}}">{{errorMsg}}</text>
+
+      <button
+        class="auth-btn {{loading ? 'loading' : ''}}"
+        bindtap="onSubmit"
+        disabled="{{loading}}"
+      >
+        {{loading ? '验证中...' : '验证'}}
+      </button>
+    </view>
+
+    <view class="auth-footer">
+      <text class="footer-text">如需邀请码，请联系管理员</text>
+    </view>
+  </view>
+</view>
