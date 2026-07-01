@@ -1,0 +1,42 @@
+# 微信开发者工具
+.project
+.idea/
+*.iml
+.vscode/
+
+# 微信小程序
+miniprogram_npm/
+
+# 依赖目录
+node_modules/
+
+# 日志
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 操作系统
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# 构建输出
+dist/
+build/
+
+# 环境配置
+.env
+.env.local
+.env.*.local
+
+# 私有配置 (包含appid等敏感信息)
+# project.private.config.json

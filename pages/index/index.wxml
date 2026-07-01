@@ -1,0 +1,130 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <view class="badge">复习表格 · 复习版</view>
+    <view class="title">{{title}}</view>
+    <view class="subtitle">{{subtitle}}</view>
+    <view class="desc">看中文·音标·例句，默写英文</view>
+    <view class="count">共 {{total}} 个重点考研词汇</view>
+  </view>
+
+  <!-- 章节导航 -->
+  <view class="chapnav">
+    <text class="lbl">章节：</text>
+    <scroll-view scroll-x class="chap-scroll">
+      <view
+        wx:for="{{sections}}"
+        wx:key="id"
+        class="chap-item {{currentSection === index ? 'active' : ''}}"
+        data-section="{{item.id}}"
+        data-index="{{index}}"
+        bindtap="scrollToSection"
+      >
+        {{item.chapter}}
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 工具栏 -->
+  <view class="toolbar">
+    <view class="btn primary" bindtap="checkAll">✔ 检查全部</view>
+    <view class="btn ghost" bindtap="revealAnswers">👁 显示答案</view>
+    <view class="btn ghost" bindtap="clearAll">↺ 清空</view>
+    <view class="score" wx:if="{{score.done > 0}}">
+      正确率 {{score.rate}}% ({{score.correct}}/{{score.done}})
+    </view>
+  </view>
+
+  <!-- 词汇列表 -->
+  <scroll-view
+    scroll-y
+    class="vocab-scroll"
+    scroll-into-view="{{scrollIntoView}}"
+    scroll-with-animation
+  >
+    <view class="vocab-list">
+      <!-- 章节标题 -->
+      <block wx:for="{{sections}}" wx:key="id" wx:for-index="secIndex" wx:for-item="section">
+        <view class="secrow" id="{{section.id}}">
+          <text class="secno">{{section.chapter}}</text>
+          <text class="sectitle">{{section.title}}</text>
+        </view>
+
+        <!-- 该章节的词汇卡片 -->
+        <view
+          wx:for="{{vocabulary}}"
+          wx:key="id"
+          wx:for-item="vocab"
+          wx:if="{{vocab.chapter === section.chapter}}"
+          class="vocab-card {{checkResults[vocab.id] && checkResults[vocab.id].correct ? 'correct' : (checkResults[vocab.id] && checkResults[vocab.id].checked && !checkResults[vocab.id].correct ? 'wrong' : '')}}"
+        >
+          <!-- 卡片头部：序号 + 章节 + 发音按钮 -->
+          <view class="card-header">
+            <view class="card-info">
+              <text class="vocab-id">#{{vocab.id}}</text>
+              <text class="vocab-chap">{{vocab.chapter}}</text>
+            </view>
+            <view
+              class="pronounce-btn"
+              data-en="{{vocab.english}}"
+              bindtap="playPronunciation"
+            >
+              <text class="chinese-word">{{vocab.chinese}}</text>
+              <text class="speaker-icon">🔊</text>
+            </view>
+          </view>
+
+          <!-- 音标 -->
+          <view class="ipa-row">
+            <text class="ipa-text">{{vocab.ipa}}</text>
+            <text class="en-text">{{vocab.english}}</text>
+          </view>
+
+          <!-- 例句 -->
+          <view class="example-row">
+            <text class="example-text">{{vocab.example}}</text>
+          </view>
+
+          <!-- 输入和检查区域 -->
+          <view class="input-row">
+            <input
+              type="text"
+              class="vocab-input {{checkResults[vocab.id] && checkResults[vocab.id].correct ? 'ok' : (checkResults[vocab.id] && checkResults[vocab.id].checked && !checkResults[vocab.id].correct ? 'no' : (checkResults[vocab.id] && checkResults[vocab.id].revealed ? 'reveal' : ''))}}"
+              placeholder="默写英文..."
+              placeholder-class="input-placeholder"
+              data-id="{{vocab.id}}"
+              value="{{inputValues[vocab.id]}}"
+              bindinput="onInput"
+              bindconfirm="onConfirm"
+              confirm-type="done"
+            />
+            <view
+              class="check-btn"
+              data-id="{{vocab.id}}"
+              bindtap="checkWord"
+            >
+              检查
+            </view>
+          </view>
+
+          <!-- 结果显示 -->
+          <view class="result-row" wx:if="{{checkResults[vocab.id]}}">
+            <view class="result {{checkResults[vocab.id].correct ? 'ok' : 'no'}}" wx:if="{{checkResults[vocab.id].checked}}">
+              <text wx:if="{{checkResults[vocab.id].correct}}">✓ 正确</text>
+              <text wx:else>✗ 正确答案: {{checkResults[vocab.id].answer}}</text>
+            </view>
+            <view class="result reveal" wx:if="{{checkResults[vocab.id].revealed}}">
+              <text>答案: {{vocab.english}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- 底部 -->
+      <view class="footer">
+        {{title}} · 词汇复习表
+      </view>
+    </view>
+  </scroll-view>
+</view>

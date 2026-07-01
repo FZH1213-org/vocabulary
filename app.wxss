@@ -1,0 +1,17 @@
+/* app.wxss - 全局样式 */
+:root {
+  --pill: #c7e8c5;
+  --accent: #3fa34d;
+  --soft: #f3fbf2;
+}
+
+page {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: #2b2b2b;
+  background: linear-gradient(180deg, var(--soft), #fff 260px);
+  min-height: 100vh;
+}
+
+.container {
+  padding: 0 20rpx 80rpx;
+}

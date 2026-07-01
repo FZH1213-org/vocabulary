@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "词汇复习表格",
+    "navigationBarBackgroundColor": "#3fa34d",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f3fbf2",
+    "backgroundTextStyle": "dark"
+  },
+  "sitemapLocation": "sitemap.json"
+}
