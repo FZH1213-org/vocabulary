@@ -33,8 +33,6 @@ Page({
       return;
     }
 
-    this.setData({ loading: true, errorMsg: '' });
-
     // 验证邀请码
     const { VERIFY_CODE } = require('../../constant/verifyCode');
     const keysArray = Object.keys(VERIFY_CODE);
@@ -42,8 +40,9 @@ Page({
     const verifyCode = (code.slice(4).toUpperCase());
     if (this.data.queryParams.module !== type) {
       this.setData({ errorMsg: '邀请码和所选模块不匹配' });
-      return;
+    return;
     }
+    this.setData({ loading: true, errorMsg: '' });
     setTimeout(() => {
       if (verifyCode.length === 8 && keysArray.includes(type) && VERIFY_CODE[type].includes(md5(verifyCode))) {
         // 验证成功，存储标识
