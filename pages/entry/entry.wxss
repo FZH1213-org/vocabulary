@@ -1,0 +1,131 @@
+.entry-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #5dc46b 0%, #1a4f20 100%);
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.entry-header {
+  text-align: center;
+  padding: 40rpx 0 80rpx;
+}
+
+.entry-title {
+  display: block;
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20rpx;
+  text-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+.entry-subtitle {
+  display: block;
+  font-size: 30rpx;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.module-item {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.12);
+  transition: all 0.3s;
+}
+
+.module-item:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.15);
+}
+
+.module-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+}
+
+.module-item.kaoyan .module-icon {
+  background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+}
+
+.module-item.cet4 .module-icon {
+  background: linear-gradient(135deg, #4dabf7 0%, #1971c2 100%);
+}
+
+.module-item.cet6 .module-icon {
+  background: linear-gradient(135deg, #9775fa 0%, #5f3dc4 100%);
+}
+
+.module-item.other .module-icon {
+  background: linear-gradient(135deg, #ffd43b 0%, #f08c00 100%);
+}
+
+.icon-text {
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.module-info {
+  flex: 1;
+}
+
+.module-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.module-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.module-arrow {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-icon {
+  font-size: 48rpx;
+  color: #ccc;
+  font-weight: 300;
+}
+
+.module-check {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon {
+  font-size: 40rpx;
+  color: #3fa34d;
+  font-weight: bold;
+}
+
+.entry-footer {
+  text-align: center;
+  padding: 60rpx 0 40rpx;
+}
+
+.footer-text {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,76 @@
+<view class="entry-container">
+  <view class="entry-header">
+    <text class="entry-title">词汇复习小程序</text>
+    <text class="entry-subtitle">请选择学习模块</text>
+  </view>
+
+  <view>
+    <view class="module-item kaoyan" bindtap="onModuleTap" data-module="MSTR">
+      <view class="module-icon">
+        <text class="icon-text">考研</text>
+      </view>
+      <view class="module-info">
+        <text class="module-title">考研词汇</text>
+        <text class="module-desc">考研英语核心词汇</text>
+      </view>
+      <view class="module-check" wx:if="{{verifyType === 'MSTR'}}">
+        <text class="check-icon">✓</text>
+      </view>
+      <view class="module-arrow" wx:else>
+        <text class="arrow-icon">›</text>
+      </view>
+    </view>
+
+    <view class="module-item cet4" bindtap="onModuleTap" data-module="CET4">
+      <view class="module-icon">
+        <text class="icon-text">四级</text>
+      </view>
+      <view class="module-info">
+        <text class="module-title">四级词汇</text>
+        <text class="module-desc">大学英语四级核心词汇</text>
+      </view>
+      <view class="module-check" wx:if="{{verifyType === 'CET4'}}">
+        <text class="check-icon">✓</text>
+      </view>
+      <view class="module-arrow" wx:else>
+        <text class="arrow-icon">›</text>
+      </view>
+    </view>
+
+    <view class="module-item cet6" bindtap="onModuleTap" data-module="CET6">
+      <view class="module-icon">
+        <text class="icon-text">六级</text>
+      </view>
+      <view class="module-info">
+        <text class="module-title">六级词汇</text>
+        <text class="module-desc">大学英语六级核心词汇</text>
+      </view>
+      <view class="module-check" wx:if="{{verifyType === 'CET6'}}">
+        <text class="check-icon">✓</text>
+      </view>
+      <view class="module-arrow" wx:else>
+        <text class="arrow-icon">›</text>
+      </view>
+    </view>
+
+    <view class="module-item other" bindtap="onModuleTap" data-module="OTHER">
+      <view class="module-icon">
+        <text class="icon-text">其他</text>
+      </view>
+      <view class="module-info">
+        <text class="module-title">其他词汇</text>
+        <text class="module-desc">更多英语学习资源</text>
+      </view>
+      <view class="module-check" wx:if="{{verifyType === 'OTHER'}}">
+        <text class="check-icon">✓</text>
+      </view>
+      <view class="module-arrow" wx:else>
+        <text class="arrow-icon">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="entry-footer">
+    <text class="footer-text">· 让学习变得有趣点 ·</text>
+  </view>
+</view>

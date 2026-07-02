@@ -1,5 +1,8 @@
 // pages/auth/auth.js
 
+const { VERIFY_STATUS } = require("../../constant/verifyStatus");
+const { md5 } = require("../../utils/md5");
+
 Page({
   data: {
     inviteCode: '',
@@ -8,13 +11,6 @@ Page({
   },
 
   onLoad() {
-    // 检查是否已验证
-    const isVerified = wx.getStorageSync('isVerified');
-    if (isVerified) {
-      wx.switchTab({
-        url: '/pages/index/index'
-      });
-    }
   },
 
   onInput(e) {
@@ -34,14 +30,16 @@ Page({
 
     this.setData({ loading: true, errorMsg: '' });
 
-    // 验证邀请码（可配置多个有效邀请码）
-    const validCodes = ['VIP2024', 'LETSGO', 'ENGLISH123'];
-
+    // 验证邀请码
+    const { VERIFY_CODE } = require('../../constant/verifyCode');
+    const keysArray = Object.keys(VERIFY_CODE);
+    const type = code.slice(0, 4).toUpperCase();
+    const verifyCode = (code.slice(4).toUpperCase());
     setTimeout(() => {
-      if (validCodes.includes(code.toUpperCase())) {
+      if (verifyCode.length === 8 && keysArray.includes(type) && VERIFY_CODE[type].includes(md5(verifyCode))) {
         // 验证成功，存储标识
-        wx.setStorageSync('isVerified', true);
-        wx.setStorageSync('verifyTime', Date.now());
+        wx.setStorageSync('verifyStatus', VERIFY_STATUS.VALID);
+        wx.setStorageSync('verifyType', type);
 
         wx.showToast({
           title: '验证成功',
@@ -51,7 +49,7 @@ Page({
 
         setTimeout(() => {
           wx.switchTab({
-            url: '/pages/index/index'
+            url: '/pages/page2/page2'
           });
         }, 1500);
       } else {
@@ -65,9 +63,8 @@ Page({
 
   // 清除验证状态（开发调试用）
   clearVerify() {
-    wx.removeStorageSync('isVerified');
-    wx.removeStorageSync('verifyTime');
-    wx.removeStorageSync('inviteCode');
+    wx.removeStorageSync('verifyStatus');
+    wx.removeStorageSync('verifyType');
     wx.showToast({
       title: '已清除验证',
       icon: 'none'

@@ -1,25 +1,25 @@
 // utils/auth.js - 验证工具
+const { VERIFY_STATUS } = require("../constant/verifyStatus");
 
 /**
  * 检查是否已验证
  */
 function isVerified() {
-  return wx.getStorageSync('isVerified') === true;
+  return wx.getStorageSync('verifyStatus') === VERIFY_STATUS.VALID;
 }
-
 /**
- * 获取验证时间
+ * 获取验证类型
  */
-function getVerifyTime() {
-  return wx.getStorageSync('verifyTime');
+function getVerifyType() {
+  return wx.getStorageSync('verifyType');
 }
 
 /**
  * 清除验证状态
  */
 function clearVerify() {
-  wx.removeStorageSync('isVerified');
-  wx.removeStorageSync('verifyTime');
+  wx.removeStorageSync('verifyStatus');
+  wx.removeStorageSync('verifyType');
 }
 
 /**
@@ -39,7 +39,7 @@ function needsAuth(pagePath) {
 
 module.exports = {
   isVerified,
-  getVerifyTime,
+  getVerifyType,
   clearVerify,
   needsAuth,
   protectedPages

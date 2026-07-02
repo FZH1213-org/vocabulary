@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/entry/entry",
     "pages/auth/auth",
     "pages/index/index",
     "pages/page2/page2"
@@ -18,16 +19,16 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "assets/icons/home.png",
-        "selectedIconPath": "assets/icons/home-active.png"
-      },
-      {
         "pagePath": "pages/page2/page2",
         "text": "页面2",
         "iconPath": "assets/icons/page2.png",
         "selectedIconPath": "assets/icons/page2-active.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
       }
     ]
   },
