@@ -7,10 +7,15 @@ Page({
   data: {
     inviteCode: '',
     errorMsg: '',
-    loading: false
+    loading: false,
+    queryParams: {}
   },
 
-  onLoad() {
+  onLoad(options) {
+    // 获取 url 带过来的参数
+    this.setData({
+      queryParams: options,
+    });
   },
 
   onInput(e) {
@@ -35,6 +40,10 @@ Page({
     const keysArray = Object.keys(VERIFY_CODE);
     const type = code.slice(0, 4).toUpperCase();
     const verifyCode = (code.slice(4).toUpperCase());
+    if (this.data.queryParams.module !== type) {
+      this.setData({ errorMsg: '邀请码和所选模块不匹配' });
+      return;
+    }
     setTimeout(() => {
       if (verifyCode.length === 8 && keysArray.includes(type) && VERIFY_CODE[type].includes(md5(verifyCode))) {
         // 验证成功，存储标识

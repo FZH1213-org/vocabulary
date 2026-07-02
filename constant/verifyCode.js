@@ -1,5 +1,5 @@
 /**
- * 验证码数组
+ * 邀请码数组
  */
 export const VERIFY_CODE = {
   MSTR: ['2232c6e6a8236b0c97c408eedafd488e', '1013777a0daf3bb1110b06504fbe1c2a'],      // 考研

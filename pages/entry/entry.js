@@ -32,7 +32,7 @@ Page({
             if (res.confirm) {
               // 点击确定，跳转到 auth 页面
               wx.redirectTo({
-                url: '/pages/auth/auth'
+                url: `/pages/auth/auth?module=${module}`
               });
             }
             // 点击取消，关闭弹窗（不做任何操作）
@@ -42,7 +42,7 @@ Page({
     } else {
       // 验证不通过，跳转到 auth 页面
       wx.redirectTo({
-        url: '/pages/auth/auth'
+        url: `/pages/auth/auth?module=${module}`
       });
     }
   }
