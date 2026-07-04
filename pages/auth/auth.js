@@ -36,8 +36,10 @@ Page({
     // 验证邀请码
     const { VERIFY_CODE } = require('../../constant/verifyCode');
     const keysArray = Object.keys(VERIFY_CODE);
+    // 第1-4位是所属模块
     const type = code.slice(0, 4).toUpperCase();
-    const verifyCode = (code.slice(4).toUpperCase());
+    // 第5-12位是验证有效邀请码
+    const verifyCode = (code.slice(4, 12).toUpperCase());
     if (this.data.queryParams.module !== type) {
       this.setData({ errorMsg: '邀请码和所选模块不匹配' });
     return;
@@ -47,7 +49,12 @@ Page({
       if (verifyCode.length === 8 && keysArray.includes(type) && VERIFY_CODE[type].includes(md5(verifyCode))) {
         // 验证成功，存储标识
         wx.setStorageSync('verifyStatus', VERIFY_STATUS.VALID);
-        wx.setStorageSync('verifyType', type);
+        // 拼接保存 verifyType，不重复添加
+        let typesStr = wx.getStorageSync('verifyType') || '';
+        if (typesStr.includes(type)) {
+          typesStr = `${typesStr},${type}`;
+        }
+        wx.setStorageSync('verifyType', typesStr);
 
         wx.showToast({
           title: '验证成功',

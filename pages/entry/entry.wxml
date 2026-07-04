@@ -13,7 +13,7 @@
         <text class="module-title">考研词汇</text>
         <text class="module-desc">考研英语核心词汇</text>
       </view>
-      <view class="module-check" wx:if="{{verifyType === 'MSTR'}}">
+      <view class="module-check" wx:if="{{hasMSTR}}">
         <text class="check-icon">✓</text>
       </view>
       <view class="module-arrow" wx:else>
@@ -29,7 +29,7 @@
         <text class="module-title">四级词汇</text>
         <text class="module-desc">大学英语四级核心词汇</text>
       </view>
-      <view class="module-check" wx:if="{{verifyType === 'CET4'}}">
+      <view class="module-check" wx:if="{{hasCET4}}">
         <text class="check-icon">✓</text>
       </view>
       <view class="module-arrow" wx:else>
@@ -45,7 +45,7 @@
         <text class="module-title">六级词汇</text>
         <text class="module-desc">大学英语六级核心词汇</text>
       </view>
-      <view class="module-check" wx:if="{{verifyType === 'CET6'}}">
+      <view class="module-check" wx:if="{{hasCET6}}">
         <text class="check-icon">✓</text>
       </view>
       <view class="module-arrow" wx:else>
@@ -61,7 +61,7 @@
         <text class="module-title">其他词汇</text>
         <text class="module-desc">更多英语学习资源</text>
       </view>
-      <view class="module-check" wx:if="{{verifyType === 'OTHER'}}">
+      <view class="module-check" wx:if="{{hasOTHER}}">
         <text class="check-icon">✓</text>
       </view>
       <view class="module-arrow" wx:else>

@@ -3,22 +3,26 @@
 const auth = require('../../utils/auth.js');
 Page({
   data: {
-    verifyType: '' // 已验证的模块类型
+    hasMSTR: false,// 考研
+    hasCET4: false,// 四级
+    hasCET6: false,// 六级
+    hasOTHER: false, // 其他
   },
 
   onLoad() {
     // 获取已验证的模块类型
     const verifyType = auth.getVerifyType() || '';
-    this.setData({
-      verifyType
-    });
+    verifyType.includes('MSTR') && this.setData({ hasMSTR: true });
+    verifyType.includes('CET4') && this.setData({ hasCET4: true });
+    verifyType.includes('CET6') && this.setData({ hasCET6: true });
+    verifyType.includes('OTHER') && this.setData({ hasOTHER: true });
   },
 
   onModuleTap(e) {
     const module = e.currentTarget.dataset.module;
 
     if (auth.isVerified() && auth.getVerifyType()) {
-      if (auth.getVerifyType() === module) {
+      if (auth.getVerifyType().includes(module)) {
         // 存储选择的模块
         wx.switchTab({
           url: '/pages/page2/page2'
