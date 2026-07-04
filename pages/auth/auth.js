@@ -42,7 +42,7 @@ Page({
     const verifyCode = (code.slice(4, 12).toUpperCase());
     if (this.data.queryParams.module !== type) {
       this.setData({ errorMsg: '邀请码和所选模块不匹配' });
-    return;
+      return;
     }
     this.setData({ loading: true, errorMsg: '' });
     setTimeout(() => {
@@ -51,7 +51,7 @@ Page({
         wx.setStorageSync('verifyStatus', VERIFY_STATUS.VALID);
         // 拼接保存 verifyType，不重复添加
         let typesStr = wx.getStorageSync('verifyType') || '';
-        if (typesStr.includes(type)) {
+        if (!typesStr.includes(type)) {
           typesStr = `${typesStr},${type}`;
         }
         wx.setStorageSync('verifyType', typesStr);
