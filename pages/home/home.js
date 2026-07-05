@@ -30,15 +30,17 @@ Page({
 
   // 学单词
   onLearnWords() {
+    const targetUrl = encodeURIComponent('https://cdn.jmj1995.com/frent_20260705_mini_词汇复习表格·复习版（目录+发音）.html');
     wx.navigateTo({
-      url: '/pages/learn/learn'
+      url: `/pages/webview/webview?url=${targetUrl}&title=看故事`
     });
   },
 
   // 看故事
   onViewStory() {
+    const targetUrl = encodeURIComponent('https://cdn.jmj1995.com/frent_20260705_mini_马里亚纳海沟的秘密·复习版.html');
     wx.navigateTo({
-      url: '/pages/story/story'
+      url: `/pages/webview/webview?url=${targetUrl}&title=看故事`
     });
   },
 

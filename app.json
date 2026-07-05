@@ -3,6 +3,7 @@
     "pages/entry/entry",
     "pages/auth/auth",
     "pages/home/home",
+    "pages/webview/webview",
     "pages/index/index",
     "pages/page2/page2"
   ],
