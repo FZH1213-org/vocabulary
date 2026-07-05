@@ -2,6 +2,7 @@
   "pages": [
     "pages/entry/entry",
     "pages/auth/auth",
+    "pages/home/home",
     "pages/index/index",
     "pages/page2/page2"
   ],

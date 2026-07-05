@@ -55,6 +55,7 @@ Page({
           typesStr = `${typesStr},${type}`;
         }
         wx.setStorageSync('verifyType', typesStr);
+        wx.setStorageSync('currentType', type);
 
         wx.showToast({
           title: '验证成功',
@@ -63,8 +64,8 @@ Page({
         });
 
         setTimeout(() => {
-          wx.switchTab({
-            url: '/pages/page2/page2'
+          wx.redirectTo({
+            url: '/pages/home/home'
           });
         }, 1500);
       } else {

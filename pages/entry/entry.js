@@ -23,9 +23,10 @@ Page({
 
     if (auth.isVerified() && auth.getVerifyType()) {
       if (auth.getVerifyType().includes(module)) {
+        wx.setStorageSync('currentType', module);
         // 存储选择的模块
-        wx.switchTab({
-          url: '/pages/page2/page2'
+        wx.redirectTo({
+          url: '/pages/home/home'
         });
       } else {
         // 所选模块与历史已选不一致

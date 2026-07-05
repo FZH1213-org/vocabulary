@@ -1,0 +1,72 @@
+<view class="home-container">
+  <!-- 顶部信息栏 -->
+  <view class="header">
+    <view class="header-content">
+      <text class="header-title">{{currentModule}}</text>
+      <text class="header-subtitle">选择学习方式开始复习</text>
+    </view>
+    <view class="header-icon">
+      <text class="icon-book">📚</text>
+    </view>
+  </view>
+
+  <!-- 功能模块区域 -->
+  <view class="modules-section">
+    <view class="module-card learn" bindtap="onLearnWords">
+      <view class="module-icon-wrapper">
+        <text class="module-emoji">📖</text>
+      </view>
+      <view class="module-content">
+        <text class="module-name">学单词</text>
+        <text class="module-desc">浏览单词列表，学习释义</text>
+      </view>
+      <view class="module-arrow">
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="module-card story" bindtap="onViewStory">
+      <view class="module-icon-wrapper">
+        <text class="module-emoji">📖</text>
+      </view>
+      <view class="module-content">
+        <text class="module-name">看故事</text>
+        <text class="module-desc">通过故事情境记忆单词</text>
+      </view>
+      <view class="module-arrow">
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="module-card translate" bindtap="onViewTranslate">
+      <view class="module-icon-wrapper">
+        <text class="module-emoji">🌐</text>
+      </view>
+      <view class="module-content">
+        <text class="module-name">看翻译</text>
+        <text class="module-desc">中英对照，加深理解</text>
+      </view>
+      <view class="module-arrow">
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="module-card memory" bindtap="onMemoryBoost">
+      <view class="module-icon-wrapper">
+        <text class="module-emoji">🧠</text>
+      </view>
+      <view class="module-content">
+        <text class="module-name">强记忆</text>
+        <text class="module-desc">高强度记忆训练</text>
+      </view>
+      <view class="module-arrow">
+        <text class="arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="footer">
+    <text class="footer-text">坚持学习，每天进步一点点</text>
+  </view>
+</view>
